@@ -1,3 +1,30 @@
+## Deploy and start with VM
+
+1. run your VM 
+2. copy public IP of VM 
+* for example, `84.201.161.27`
+3. enter to VM 
+* `ssh 84.201.161.27 -A -l admin`
+4. install docker 
+* `sudo apt-get install docker.io`
+5. add user admin to group docker 
+* `sudo gpasswd -a admin docker`
+* `logout`
+* `ssh 84.201.161.27 -A -l admin`
+6. clone project 
+* `git clone git@github.com:nimestel/flatris.git`
+7. go to project dir
+* `cd flatris`
+8. build project 
+* `docker-compose build`
+* or `docker build . -t flatris`
+9. run project
+* `docker-compose up`
+* or `docker run -it -p 3000:3000 flatris`
+10. enjoy app on public IP address of VM with 3000 port
+* `http://84.201.161.27:3000/`
+
+
 [![Flatris](flatris.png)](https://flatris.space/)
 
 [![Build Status](https://travis-ci.org/skidding/flatris.svg?branch=master)](https://travis-ci.org/skidding/flatris)
